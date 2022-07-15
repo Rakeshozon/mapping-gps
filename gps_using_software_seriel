@@ -1,0 +1,19 @@
+#include <SoftwareSerial.h>
+int rxPin = 2;
+int txPin = 3;
+SoftwareSerial gpsSerial =  SoftwareSerial(rxPin, txPin);
+
+void setup()
+{
+  pinMode(rxPin, INPUT);
+  pinMode(txPin, OUTPUT);
+  Serial.begin(9600);
+  gpsSerial.begin(9600);
+}
+
+void loop()
+{
+  char c;
+  c = gpsSerial.read();
+  Serial.println(c);
+}
